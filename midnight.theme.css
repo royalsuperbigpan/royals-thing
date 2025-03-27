@@ -66,20 +66,76 @@ body {
 
     /* other options */
     --small-user-panel: off; /* turn on to make the user panel smaller like in old discord */
+.visual-refresh .form_f75fb0 {
+    padding-left: 0;
+    padding-right: 0;
 }
-.visual-refresh {
-    --custom-channel-textarea-text-area-height: 56px;
-    .form_f75fb0 {
-        display: flex;
-        flex-direction: column;
-    }
-    .channelTextArea_f75fb0 {
-        margin-bottom: 8px;
-    }
-    .base_b88801 {
-        position: static;
-        order: -1;
-    }
+
+.visual-refresh .form_f75fb0 {
+    margin-top: 12px; /* distance for typing thing */
+}
+
+:where(.visual-refresh) .chatContent_f75fb0 {
+    background: transparent !important;
+     border: none !important;
+}
+
+.visual-refresh .stackedBars__74017 {
+    background: var(--bg-4);
+    position: relative;
+    z-index: 5;
+}
+
+:where(.visual-refresh) .floatingBars__74017 {
+    visibility: visible;
+}
+
+:where(.visual-refresh) .chatContent_f75fb0::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 100%;
+    height: calc(100% - 67px); 
+    background: var(--bg-4);
+    z-index: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: var(--panel-backdrop-filter);
+}
+
+.visual-refresh .channelTextArea_f75fb0 {
+    background: var(--bg-4);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    left: 1px;
+    backdrop-filter: var(--panel-backdrop-filter);
+}
+
+.typing_b88801 {
+    top: -40px;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+}
+
+.cooldownWrapper_b21699 {
+    direction: ltr; 
+    text-align: left;
+}
+
+[class='typingDots_b88801'] {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.container_c48ade {
+    --custom-chat-input-margin-bottom: 0px;
 }
 
 /* color options */
@@ -88,11 +144,11 @@ body {
 
     /* text colors */
     --text-0: var(--bg-4); /* text on colored elements */
-    --text-1: hsl(220, 45%, 95%); /* other normally white text */
-    --text-2: hsl(220, 25%, 70%); /* headings and important text */
-    --text-3: hsl(220, 20%, 60%); /* normal text */
-    --text-4: hsl(220, 15%, 40%); /* icon buttons and channels */
-    --text-5: hsl(220, 15%, 25%); /* muted channels/chats and timestamps */
+    --text-1: hsl(0 0% 100%); /* other normally white text */
+    --text-2: hsl(0 0% 100%); /* headings and important text */
+    --text-3: hsl(0 0% 89%); /* normal text */
+    --text-4: hsl(0 0% 83%); /* icon buttons and channels */
+    --text-5: hsl(0 0% 38%); /* muted channels/chats and timestamps */
 
     /* background and dark colors */
     --bg-1: hsla(220, 15%, 20%, 1); /* dark buttons when clicked */
